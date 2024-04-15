@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=bspwm-gnome
-NoDisplay=true
+NoDisplay=false
 Comment=Tiling window manager based on binary space partitioning
 Exec=bspwm-gnome
 X-GNOME-WMName=bspwm-gnome

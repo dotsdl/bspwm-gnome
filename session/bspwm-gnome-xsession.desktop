@@ -6,4 +6,5 @@ TryExec=bspwm-gnome
 Icon=
 Type=Application
 DesktopNames=GNOME
-X-Ubuntu-Gettext-Domain=gnome-session-3.0
+#X-Ubuntu-Gettext-Domain=gnome-session-3.0
+X-GDM-SessionRegisters=true
