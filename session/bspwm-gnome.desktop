@@ -1,10 +1,6 @@
 [Desktop Entry]
+Name=bspwm (GNOME services)
+Comment=bspwm with GNOME session
+Exec=/usr/local/bin/bspwm-gnome-session
 Type=Application
-Name=bspwm-gnome
-NoDisplay=false
-Comment=Tiling window manager based on binary space partitioning
-Exec=bspwm-gnome
-X-GNOME-WMName=bspwm-gnome
-X-GNOME-Autostart-Phase=WindowManager
-X-GNOME-Provides=windowmanager
-X-GNOME-Autostart-Notify=false
+DesktopNames=GNOME

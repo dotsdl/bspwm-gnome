@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export XDG_CURRENT_DESKTOP=GNOME
+export XDG_SESSION_DESKTOP=GNOME
+
+# Start GNOME session services
+/usr/libexec/gnome-session-binary --session=gnome &
+
+# Wait a moment for services to initialize
+sleep 2
+
+# Start bspwm
+exec bspwm
