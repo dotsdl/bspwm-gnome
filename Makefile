@@ -19,7 +19,7 @@ all:
 
 install:
 	$(INSTALL) -m0644 -D session/bspwm-gnome.desktop $(PATH_BSPWM_GNOME_DESKTOP)
-	$(INSTALL) -m0755 -D session/bspwm-gnome $(PATH_BSPWM_GNOME_SESSION)
+	$(INSTALL) -m0755 -D session/bspwm-gnome-session $(PATH_BSPWM_GNOME_SESSION)
 
 
 
