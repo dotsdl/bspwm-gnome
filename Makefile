@@ -3,10 +3,9 @@
 #
 
 INSTALL = install
-DESTDIR ?= /
-PREFIX  ?= $(DESTDIR)/usr
+PREFIX  ?= /usr
 
-PATH_BSPWM_GNOME_DESKTOP = $(PREFIX)/share/applications/bspwm-gnome.desktop
+PATH_BSPWM_GNOME_DESKTOP = $(PREFIX)/share/xsessions/bspwm-gnome.desktop
 PATH_BSPWM_GNOME_SESSION = $(PREFIX)/local/bin/bspwm-gnome-session
 
 #
