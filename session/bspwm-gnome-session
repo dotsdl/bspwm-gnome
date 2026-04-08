@@ -2,6 +2,7 @@
 
 export XDG_CURRENT_DESKTOP=GNOME
 export XDG_SESSION_DESKTOP=GNOME
+export XDG_SESSION_TYPE=x11
 
 # Start GNOME session services
 /usr/libexec/gnome-session-binary --session=gnome &
