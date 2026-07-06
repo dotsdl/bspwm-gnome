@@ -4,13 +4,8 @@ export XDG_CURRENT_DESKTOP=GNOME
 export XDG_SESSION_DESKTOP=GNOME
 export XDG_SESSION_TYPE=x11
 
-# Start GNOME session services.
-# Use the gnome-session wrapper (on PATH) rather than a hardcoded
-# gnome-session-binary path: the binary lives in different locations across
-# distros (e.g. /usr/libexec on Fedora, but not on Arch), and the wrapper
-# also performs the proper systemd handoff that brings up
-# graphical-session.target and its units (e.g. xdg-desktop-portal).
-gnome-session --session=gnome &
+# Start GNOME session services
+/usr/libexec/gnome-session-binary --session=gnome &
 
 # Wait a moment for services to initialize
 sleep 2
