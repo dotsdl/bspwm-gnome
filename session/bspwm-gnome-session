@@ -4,24 +4,16 @@ export XDG_CURRENT_DESKTOP=GNOME
 export XDG_SESSION_DESKTOP=GNOME
 export XDG_SESSION_TYPE=x11
 
-# Export the session environment to the systemd user manager and D-Bus so that
-# on-demand user services (notably xdg-desktop-portal) inherit DISPLAY etc.
-systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+# Start GNOME session services.
+# Use the gnome-session wrapper (on PATH) rather than a hardcoded
+# gnome-session-binary path: the binary lives in different locations across
+# distros (e.g. /usr/libexec on Fedora, but not on Arch), and the wrapper
+# also performs the proper systemd handoff that brings up
+# graphical-session.target and its units (e.g. xdg-desktop-portal).
+gnome-session --session=gnome &
 
-# Bring up graphical-session.target for this session.
-#
-# graphical-session.target has RefuseManualStart=yes, so it can only be pulled
-# up as a dependency: bspwm-session.target BindsTo it, and starting that target
-# activates it. This matters because xdg-desktop-portal >= 1.22 declares
-# Requisite=graphical-session.target and refuses to start unless the target is
-# active. Without it the portal is dead, which (among other things) breaks
-# GTK/libadwaita dark mode -- apps read the color-scheme preference from the
-# portal's org.freedesktop.portal.Settings interface.
-#
-# (Older portal versions, e.g. 1.20, had no such Requisite and D-Bus-activated
-# on demand, so this was not needed there.)
-systemctl --user start bspwm-session.target
+# Wait a moment for services to initialize
+sleep 2
 
-# Start bspwm as the window manager.
+# Start bspwm
 exec bspwm
